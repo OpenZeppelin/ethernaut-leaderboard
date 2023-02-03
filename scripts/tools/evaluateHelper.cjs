@@ -2,6 +2,7 @@ const oldSolveInstanceHex =
   "0x9dfdf7e3e630f506a3dfe38cdbe34e196353364235df33e5a3b588488d9a1e78";
 const newSolveInstanceHex =
   "0x5038a30b900118d4e513ba62ebd647a96726a6f81b8fda73c21e9da45df5423d";
+const getGameData = require("../../utils/getGameData.cjs");
 const callFunctionWithRetry = require("../tools/callFunctionWithRetry.cjs");
 
 const evaluateIfWeHavePassedReDeployment = (check, switchoverBlock) => {
@@ -134,14 +135,14 @@ const reCalculateScores = (board) => {
   return boardWithScores;
 };
 
-const evaluateCurrentNumberOfEthernautLevels = () => {
-  const ethernautLevelsObject = require("../../../src/gamedata/gamedata.json");
+const evaluateCurrentNumberOfEthernautLevels = async () => {
+  const ethernautLevelsObject = await getGameData()
   const ethernautLevels = ethernautLevelsObject["levels"];
   return ethernautLevels.length;
 };
 
-const evaluateTotalDifficultyInEthernautGame = () => {
-  const gameDataObject = require("../../../src/gamedata/gamedata.json");
+const evaluateTotalDifficultyInEthernautGame = async () => {
+  const gameDataObject = await getGameData()
   const gameData = gameDataObject["levels"];
   let totalDifficulty = 0;
   gameData.forEach((level) => {

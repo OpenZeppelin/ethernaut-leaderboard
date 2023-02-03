@@ -21,7 +21,7 @@ const compileNetworkPlayersBoard = async (networks) => {
       `get out your lightsabre - we have morphed the ${network.name}NetworkBoard to create the ${network.name}PlayersBoard!`
     );
 
-    let networkAllPlayersPath = `client/leaderboard/networks/${String(
+    let networkAllPlayersPath = `networks/${String(
       network.name
     ).toLowerCase()}/${network.name}PlayersBoard.json`;
     fs.writeFileSync(

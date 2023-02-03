@@ -1,18 +1,26 @@
 const fs = require("fs");
-const gameData = require("../../src/gamedata/gamedata.json");
 const networks = require("./networkDetails.json");
+const getGameData = require("./getGameData.cjs");
 
-const createDifficultyMaps = () => {
+let gameData;
+
+const createDifficultyMaps = async () => {
+  gameData = await getGameData();
   for (network of networks) {
-    const difficultyMapPath = `client/leaderboard/networks/${String(network.name).toLowerCase()}/difficultyMap${network.name}.json`;
-    const difficultyMap = mapLevels(network);
+    const difficultyMapPath = `networks/${String(network.name).toLowerCase()}/difficultyMap${network.name}.json`;
+    const difficultyMap = await mapLevels(network);
     fs.writeFileSync(difficultyMapPath, JSON.stringify(difficultyMap));
   }
 };
 
-const mapLevels = (network) => {
+const getGameDataDeploy = async (network) => { 
+  const result = await fetch(`https://raw.githubusercontent.com/OpenZeppelin/ethernaut/master/client/src/gamedata/deploy.${network}.json`)
+  const data = await result.json()
+  return data;
+}
 
-  const networkLevelsObject = require(`../../src/gamedata/deploy.${String(network.deployName).toLowerCase()}`);
+const mapLevels = async (network) => {
+  const networkLevelsObject = await getGameDataDeploy(String(network.deployName).toLowerCase())
   let gameLevelsArray = gameData["levels"];
   let nameData = [];
   const figureOutGameAddressFromIndex = (index) => {

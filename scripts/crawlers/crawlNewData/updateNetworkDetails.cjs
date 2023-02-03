@@ -1,4 +1,4 @@
-const networkDataPath = "client/leaderboard/utils/networkDetails.json";
+const networkDataPath = "utils/networkDetails.json";
 const fs = require("fs");
 
 const updateNetworkDetails = async (network, upperBlock) => {

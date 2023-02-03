@@ -1,7 +1,8 @@
 const fs = require("fs");
-const leaderBoardPath = `client/leaderboard/boards/aliases.json`;
+const leaderBoard = require('../../../boards/aliases.json');
 const dotenv = require("dotenv");
 const axios = require("axios");
+const leaderBoardPath = 'boards/aliases.json'
 
 dotenv.config();
 
@@ -91,8 +92,6 @@ const getFetchAliasRequest = async (after) => {
 }
 
 const addAliases = async (aliasArray) => {
-  const leaderBoard = require(leaderBoardPath);
-
   for (let i = 0; i < aliasArray.length; i++) {
     if(!leaderBoard[aliasArray[i].ethernaut_address]) {
       leaderBoard[aliasArray[i].ethernaut_address.toLowerCase()] = aliasArray[i].ethernaut_alias;

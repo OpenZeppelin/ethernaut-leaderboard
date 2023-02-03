@@ -7,7 +7,7 @@ const updateNetworkPlayersBoard = require("./updateNetworkPlayersBoard.cjs");
 const crawlForFreshEntries = async (network, web3, logger) => {
   const upperBlock = await returnLatestBlock(network);
   let logs = await callBlockChain(network, web3, upperBlock);
-  const freshEntriesCrawlPath = `client/leaderboard/networks/${String(network.name).toLowerCase()}/lastCrawl${network.name}.json`
+  const freshEntriesCrawlPath = `networks/${String(network.name).toLowerCase()}/lastCrawl${network.name}.json`
   
   await logger(
     `Buckle up, chuck, we're adding ${logs.length} emit profiles to lastCrawl${network.name}!`

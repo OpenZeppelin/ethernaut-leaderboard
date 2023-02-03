@@ -49,7 +49,7 @@ const generateNetworkBoard = async (network, log) => {
     web3,
     mappingData
   );
-  const filteredDataPath = `client/leaderboard/networks/${String(
+  const filteredDataPath = `networks/${String(
     network.name
   ).toLowerCase()}/filtered${network.name}Data.json`;
   fs.writeFileSync(filteredDataPath, JSON.stringify(filteredLogs));
@@ -60,7 +60,7 @@ const generateNetworkBoard = async (network, log) => {
   await logger(
     "golly gosh, " + networkData.length + " logs have been processed"
   );
-  const networkDataPath = `client/leaderboard/networks/${String(
+  const networkDataPath = `networks/${String(
     network.name
   ).toLowerCase()}/${network.name}NetworkBoard.json`;
   fs.writeFileSync(networkDataPath, JSON.stringify(networkData));

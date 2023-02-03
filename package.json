@@ -10,8 +10,8 @@
     "web3": "1.8.2"
   },
   "scripts": {
-    "leaderboard:oldCrawler": "node leaderboard/scripts/crawlers/crawlHistoricalData/index.cjs",
-    "leaderboard:newCrawler": "node client/leaderboard/scripts/crawlers/crawlNewData/index.cjs",
-    "leaderboard:triggerNextCrawl": "node client/leaderboard/scripts/actuate/index.cjs"
+    "leaderboard:oldCrawler": "node scripts/crawlers/crawlHistoricalData/index.cjs",
+    "leaderboard:newCrawler": "node scripts/crawlers/crawlNewData/index.cjs",
+    "leaderboard:triggerNextCrawl": "node scripts/actuate/index.cjs"
   }
 }

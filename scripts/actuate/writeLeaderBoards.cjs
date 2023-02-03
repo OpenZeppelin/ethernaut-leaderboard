@@ -1,13 +1,15 @@
-const leaderBoardPath = "client/leaderboard/boards/leaderBoard.json";
-const allPlayersBoardPath = "client/leaderboard/boards/allPlayersBoard.json";
 const fs = require("fs");
+
+const leaderBoardPath = "boards/leaderBoard.json";
+const allPlayersBoardPath = "boards/allPlayersBoard.json";
+
 const networks = require("../../utils/networkDetails.json");
 const { reCalculateScores } = require("../tools/evaluateHelper.cjs");
 
-const writeLeaderBoards = async (logger) => {
+const writeLeaderBoards = async () => {
   // 1. compile network leaderboards
   for (let network of networks) {
-    const networkLeaderBoardPath = `client/leaderboard/boards/networkleaderboards/${network.name}LeaderBoard.json`;
+    const networkLeaderBoardPath = `boards/networkleaderboards/${network.name}LeaderBoard.json`;
 
     const networkPlayersBoard = require(`../../networks/${String(
       network.name.toLowerCase()
@@ -33,7 +35,7 @@ const writeLeaderBoards = async (logger) => {
   fs.writeFileSync(allPlayersBoardPath, JSON.stringify(allPlayersBoard));
 
   // 3. write global leaderboard
-  let allPlayersUnsorted = require(allPlayersBoardPath);
+  let allPlayersUnsorted = require(`../../${allPlayersBoardPath}`);
   let trimmedAllPlayersUnsorted = allPlayersUnsorted.filter((player) => {
     return player.totalNumberOfLevelsCompleted >= 4 && player.score < 100;
   });

@@ -1,14 +1,1 @@
-[
-    {
-        "name": "Sepolia",
-        "networkDecleration": "Network.SEPOLIA",
-        "oldAddress": "0xD991431D8b033ddCb84dAD257f4821E9d5b38C33",
-        "newAddress": "0xa3e7317E591D5A0F1c605be1b3aC4D2ae56104d6",
-        "fromBlock": 2033550,
-        "switchoverBlock": 2306395,
-        "toBlock": 2569443,
-        "lastFrom": 2819860,
-        "statisticsAddress": "0x57d122d0355973dA78acF5138aE664548bB2CA2b",
-        "deployName": "sepolia"
-    }
-]
+[{"name":"Sepolia","networkDecleration":"Network.SEPOLIA","oldAddress":"0xD991431D8b033ddCb84dAD257f4821E9d5b38C33","newAddress":"0xa3e7317E591D5A0F1c605be1b3aC4D2ae56104d6","fromBlock":2033550,"switchoverBlock":2306395,"toBlock":2569443,"lastFrom":2824132,"statisticsAddress":"0x57d122d0355973dA78acF5138aE664548bB2CA2b","deployName":"sepolia"}]

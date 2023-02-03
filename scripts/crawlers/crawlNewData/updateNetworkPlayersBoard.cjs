@@ -4,7 +4,7 @@ const updateNetworkPlayersBoard = async (network, logger) => {
 
   const playersBoard = require(`../../../networks/${String(network.name).toLowerCase()}/${network.name}PlayersBoard.json`);
   const networkFreshCrawl = require(`../../../networks/${String(network.name).toLowerCase()}/lastCrawl${network.name}.json`);
-  const playersBoardPath = `client/leaderboard/networks/${String(network.name).toLowerCase()}/${network.name}PlayersBoard.json`;
+  const playersBoardPath = `networks/${String(network.name).toLowerCase()}/${network.name}PlayersBoard.json`;
 
   networkFreshCrawl.forEach((entry) => {
     const index = playersBoard.findIndex((p) => p.player === entry.player);
