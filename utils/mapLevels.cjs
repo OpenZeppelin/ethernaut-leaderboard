@@ -5,7 +5,7 @@ const getGameData = require("./getGameData.cjs");
 let gameData;
 
 const createDifficultyMaps = async () => {
-  gameData = await getGameData();
+  gameData = getGameData();
   for (network of networks) {
     const difficultyMapPath = `networks/${String(network.name).toLowerCase()}/difficultyMap${network.name}.json`;
     const difficultyMap = await mapLevels(network);
@@ -41,6 +41,6 @@ const mapLevels = async (network) => {
   return nameData;
 };
 
-createDifficultyMaps();
+
 
 module.exports = createDifficultyMaps
