@@ -6,15 +6,7 @@ Adaptable with some small-ish tub of elbow greease, and completed using Alchemy/
 
 To ensure project is initialised & correct dependancies are installed
 
-`npm install alchemy-sdk`
-
-&
-
-`npm install alch/alchemy-web3`
-
-&
-
-`npm install web3`
+`yarn`
 
 # Ethernaut
 
@@ -25,14 +17,14 @@ Here's the process that needs to be taken **if starting from scratch**.:
 - run `yarn leaderboard:oldCrawler` successfully, writing the network-by-network `${network.name}PlayersBoard`'s
 
 **If you're OZ**, it's crawled its crawl and populated historical data already, right up to a very recent block indeed. 
-Check it out in `/client/leaderboard/utils/networkDetails` > `"fromBlock"` for each network. 
+Check it out in `utils/networkDetails` > `"fromBlock"` for each network. 
 
 ## All the cron job needs to do is trigger this right here:
 
 
 - run `yarn leaderboard:triggerNextCrawl` to populate each ${network.name}PlayersBoard with new entries & write the global leaderboard
 
-...as often as you like. A draft of this `.yml` file is contained in the `/client/leaderboard` directory as `crondraft.yml`.
+...as often as you like. A draft of this `.yml` file is contained in `crondraft.yml`.
 
 **NB.** *_Be sure to initialise `allPlayersBoard.json` and `newPlayersBoard.js` with an empty array `[]` if starting from scratch.*
 
