@@ -1,0 +1,17 @@
+{
+  "name": "client",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "alchemy-sdk": "^2.2.3",
+    "axios": "^1.2.4",
+    "dotenv": "^16.0.3",
+    "web3": "1.8.2"
+  },
+  "scripts": {
+    "leaderboard:oldCrawler": "node scripts/crawlers/crawlHistoricalData/index.cjs",
+    "leaderboard:newCrawler": "node scripts/crawlers/crawlNewData/index.cjs",
+    "leaderboard:triggerNextCrawl": "node scripts/actuate/index.cjs"
+  }
+}
