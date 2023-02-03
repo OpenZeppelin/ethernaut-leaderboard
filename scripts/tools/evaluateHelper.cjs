@@ -80,7 +80,7 @@ const evaluateHistoricalPlayersProfile = (processedData, network) =>
     };
   });
 
-const useScoreEquation = async (
+const useScoreEquation = (
   averageTimeTakenToCompleteALevel,
   totalDifficultyFacedByPlayer,
   totalNumberOfLevelsCompleted
@@ -88,9 +88,9 @@ const useScoreEquation = async (
   const volumeCompletedParameter = 0.8; //approx. 80% of total attainable score
   const difficultyFacedParameter = 0.1; //approx 10% of total attainable score
   const totalDifficultyInEthernautGame =
-    await evaluateTotalDifficultyInEthernautGame();
+    evaluateTotalDifficultyInEthernautGame();
   let timeScoreContribution = 0;
-  const totalNumberOfEthernautLevels = await evaluateCurrentNumberOfEthernautLevels();
+  const totalNumberOfEthernautLevels = evaluateCurrentNumberOfEthernautLevels();
 
   // If less than 15 seconds, set to 15 seconds, so that timeScoreContribution is 0.1 * 1
   averageTimeTakenToCompleteALevel = Math.max(
@@ -135,14 +135,14 @@ const reCalculateScores = (board) => {
   return boardWithScores;
 };
 
-const evaluateCurrentNumberOfEthernautLevels = async () => {
-  const ethernautLevelsObject = await getGameData()
+const evaluateCurrentNumberOfEthernautLevels = () => {
+  const ethernautLevelsObject = getGameData()
   const ethernautLevels = ethernautLevelsObject["levels"];
   return ethernautLevels.length;
 };
 
-const evaluateTotalDifficultyInEthernautGame = async () => {
-  const gameDataObject = await getGameData()
+const evaluateTotalDifficultyInEthernautGame = () => {
+  const gameDataObject = getGameData()
   const gameData = gameDataObject["levels"];
   let totalDifficulty = 0;
   gameData.forEach((level) => {
