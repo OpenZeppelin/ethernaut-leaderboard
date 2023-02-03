@@ -7,7 +7,7 @@
         "fromBlock": 7535901,
         "switchoverBlock": 7968901,
         "toBlock": 8406953,
-        "lastFrom": 8406954,
+        "lastFrom": 8428312,
         "statisticsAddress": "0x7ae0655F0Ee1e7752D7C62493CEa1E69A810e2ed",
         "deployName": "goerli"
     }
