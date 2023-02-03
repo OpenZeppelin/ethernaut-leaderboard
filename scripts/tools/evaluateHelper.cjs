@@ -80,7 +80,7 @@ const evaluateHistoricalPlayersProfile = (processedData, network) =>
     };
   });
 
-const useScoreEquation = (
+const useScoreEquation = async (
   averageTimeTakenToCompleteALevel,
   totalDifficultyFacedByPlayer,
   totalNumberOfLevelsCompleted
@@ -88,9 +88,9 @@ const useScoreEquation = (
   const volumeCompletedParameter = 0.8; //approx. 80% of total attainable score
   const difficultyFacedParameter = 0.1; //approx 10% of total attainable score
   const totalDifficultyInEthernautGame =
-    evaluateTotalDifficultyInEthernautGame();
+    await evaluateTotalDifficultyInEthernautGame();
   let timeScoreContribution = 0;
-  const totalNumberOfEthernautLevels = evaluateCurrentNumberOfEthernautLevels();
+  const totalNumberOfEthernautLevels = await evaluateCurrentNumberOfEthernautLevels();
 
   // If less than 15 seconds, set to 15 seconds, so that timeScoreContribution is 0.1 * 1
   averageTimeTakenToCompleteALevel = Math.max(
