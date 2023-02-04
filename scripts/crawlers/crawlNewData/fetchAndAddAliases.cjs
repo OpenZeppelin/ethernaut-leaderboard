@@ -1,5 +1,4 @@
 const fs = require("fs");
-const leaderBoard = require('../../../boards/aliases.json');
 const dotenv = require("dotenv");
 const axios = require("axios");
 const leaderBoardPath = 'boards/aliases.json'
@@ -92,13 +91,17 @@ const getFetchAliasRequest = async (after) => {
 }
 
 const addAliases = async (aliasArray) => {
-  for (let i = 0; i < aliasArray.length; i++) {
-    if(!leaderBoard[aliasArray[i].ethernaut_address]) {
-      leaderBoard[aliasArray[i].ethernaut_address.toLowerCase()] = aliasArray[i].ethernaut_alias;
+  try {
+    const leaderboard = {}
+    for (let i = 0; i < aliasArray.length; i++) {
+      if (aliasArray[i].ethernaut_address && aliasArray[i].ethernaut_alias) {
+        leaderboard[aliasArray[i].ethernaut_address.toLowerCase()] = aliasArray[i].ethernaut_alias
+      }
     }
+    fs.writeFileSync(leaderBoardPath, JSON.stringify(leaderboard));
+  } catch(err) {
+    console.error(err)
   }
-
-  fs.writeFileSync(leaderBoardPath, JSON.stringify(leaderBoard));
 };
 
 fetchAndAddAliases()
