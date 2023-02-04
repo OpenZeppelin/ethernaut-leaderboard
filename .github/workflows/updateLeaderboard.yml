@@ -22,9 +22,8 @@ jobs:
           OPT_GOERLI_API_KEY: '${{ secrets.OPT_GOERLI_API_KEY }}'
           MUMBAI_API_KEY: '${{ secrets.MUMBAI_API_KEY }}'
       - name: Commit files
-        run: >
-          git config --local user.email
-          "github-actions[bot]@users.noreply.github.com"
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -a -m "Add changes"
       - name: Push changes
