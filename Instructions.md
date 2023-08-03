@@ -1,10 +1,10 @@
 # Blockchain Crawler
 
-A simple trawler, crawler, and general miscrient for finding, decoding and writing datas from logs on Ethereum chains running official versions of Open Zeppelin's Ethernaut.
+A simple trawler, crawler, and general miscrient for finding, decoding and writing data from logs on Ethereum chains running official versions of Open Zeppelin's Ethernaut.
 
-Adaptable with some small-ish tub of elbow greease, and completed using Alchemy/Infura.
+Adaptable with some small-ish tub of elbow grease, and completed using Alchemy/Infura.
 
-To ensure project is initialised & correct dependancies are installed
+To ensure project is initialised & correct dependencies are installed
 
 `yarn`
 
@@ -30,6 +30,6 @@ Check it out in `utils/networkDetails` > `"fromBlock"` for each network.
 
 **NB.** *_Any automator/action triggers a crawl from the block defined as `lastFrom` under `utils/networkDetails` per network. At the end of each run, this `fromBlock` value is updated. As such, if testing, be sure to omit the `updateNetworkDetails` function until you are happy to leave the action running on whatever period.*
 
-**NB** *_during a cron job action crawl, `try/catch` blocks are used to omit RPC errors/missing responses. These are **not tracked** in this PR, and subsequently, although rare, occaisionally data on chain will not reflect that as shown on the leaderboard.*
+**NB** *_during a cron job action crawl, `try/catch` blocks are used to omit RPC errors/missing responses. These are **not tracked** in this PR, and subsequently, although rare, occasionally data on chain will not reflect that as shown on the leaderboard.*
 
 
