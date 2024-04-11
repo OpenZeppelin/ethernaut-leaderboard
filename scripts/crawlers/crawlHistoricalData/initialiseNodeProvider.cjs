@@ -1,4 +1,4 @@
-const { Alchemy } = require("alchemy-sdk");
+const { Alchemy , Network} = require("alchemy-sdk");
 const Web3 = require("web3");
 require("dotenv").config();
 
@@ -6,10 +6,6 @@ const resolveNetworkApiKey = (network) => {
   let apiKey;
 
   switch (network.name) {
-    case "Goerli": {
-      apiKey = process.env.GOERLI_API_KEY ? process.env.GOERLI_API_KEY : 0;
-      break;
-    }
 
     case "Sepolia": {
       apiKey = process.env.SEPOLIA_API_KEY ? process.env.SEPOLIA_API_KEY : 0;
@@ -17,15 +13,15 @@ const resolveNetworkApiKey = (network) => {
     }
 
     case "Arbitrum": {
-      apiKey = process.env.ARB_GOERLI_API_KEY
-        ? process.env.ARB_GOERLI_API_KEY
+      apiKey = process.env.ARB_SEPOLIA_API_KEY
+        ? process.env.ARB_SEPOLIA_API_KEY
         : 0;
       break;
     }
 
     case "Optimism": {
-      apiKey = process.env.OPT_GOERLI_API_KEY
-        ? process.env.OPT_GOERLI_API_KEY
+      apiKey = process.env.OPT_SEPOLIA_API_KEY
+        ? process.env.OPT_SEPOLIA_API_KEY
         : 0;
       break;
     }
@@ -49,7 +45,7 @@ const initialiseAlchemy = (network) => {
   if (apiKey === -1) throw new Error(`Unkown network ${network.name}`);
   const settings = {
     apiKey: apiKey,
-    network: network.networkDecleration.split(".")[1],
+    network: network.networkDeclaration  ,
   };
   const alchemy = new Alchemy(settings);
   return alchemy.core;
@@ -70,9 +66,6 @@ const initialiseInfura = (network) => {
   };
 };
 
-const initialiseNodeProvider = (network) =>
-  network.name === "Sepolia"
-    ? initialiseInfura(network)
-    : initialiseAlchemy(network);
+const initialiseNodeProvider = (network) => initialiseAlchemy(network);
 
 module.exports = initialiseNodeProvider;
