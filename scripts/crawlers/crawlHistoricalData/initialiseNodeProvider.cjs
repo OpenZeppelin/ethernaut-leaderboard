@@ -26,8 +26,8 @@ const resolveNetworkApiKey = (network) => {
       break;
     }
 
-    case "Mumbai": {
-      apiKey = process.env.MUMBAI_API_KEY ? process.env.MUMBAI_API_KEY : 0;
+    case "Amoy": {
+      apiKey = process.env.AMOY_API_KEY ? process.env.AMOY_API_KEY : 0;
       break;
     }
 
