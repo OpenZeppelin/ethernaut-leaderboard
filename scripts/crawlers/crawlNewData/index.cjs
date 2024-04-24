@@ -23,6 +23,4 @@ const crawlForFreshEntriesAndUpdateNetworkBoard = async () => {
   );
 };
 
-crawlForFreshEntriesAndUpdateNetworkBoard()
-
 module.exports = crawlForFreshEntriesAndUpdateNetworkBoard;
