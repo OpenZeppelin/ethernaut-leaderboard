@@ -42,7 +42,7 @@ const resolveNetworkApiKey = (network) => {
 const initialiseAlchemy = (network) => {
   const apiKey = resolveNetworkApiKey(network);
   if (apiKey === 0) throw new Error(`API KEY for ${network.name} is missing`);
-  if (apiKey === -1) throw new Error(`Unkown network ${network.name}`);
+  if (apiKey === -1) throw new Error(`Unknown network ${network.name}`);
   const settings = {
     apiKey: apiKey,
     network: network.networkDeclaration  ,
@@ -54,7 +54,7 @@ const initialiseAlchemy = (network) => {
 const initialiseInfura = (network) => {
   const apiKey = resolveNetworkApiKey(network);
   if (apiKey === 0) throw new Error(`API KEY for ${network.name} is missing`);
-  if (apiKey === -1) throw new Error(`Unkown network ${network.name}`);
+  if (apiKey === -1) throw new Error(`Unknown network ${network.name}`);
   const infuraWeb3 = new Web3(
     new Web3.providers.HttpProvider(
       `https://${network.name.toLowerCase()}.infura.io/v3/${apiKey}`
